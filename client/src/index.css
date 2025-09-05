@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: acma;
+  src: url(/PPAcma-Black.otf);
+}
+
+@font-face {
+  font-family: absans;
+  src: url(/absans-regular.otf);
+}
+
+.input{
+  outline: none;
+  /* border: 1px solid black; */
+}

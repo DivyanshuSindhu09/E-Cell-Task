@@ -44,7 +44,7 @@ const Landing = () => {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyUp={handleSearch}
-                placeholder='Search for a startup' 
+                placeholder='Search for a startup via name or tags' 
                 className='px-2 py-1 w-full input text-white' />
                 <button
                 onClick={handleSearchButton}
@@ -60,7 +60,7 @@ const Landing = () => {
                 ease : 'easeInOut'
                 }}
                 onClick={()=>setModalOpen(true)}
-                className='relative text-neutral-300 px-12 py-4 rounded-lg bg-slate-950/80 shadow-[0px_1px_2px_0px_rgba(255,255,255,0.1)_inset, 0px_-1px_2px_0px_rgba(255,255,255,0.1)_inset]'>Add Your Idea
+                className='relative text-neutral-300 px-12 py-4 rounded-lg bg-slate-950/40 shadow-[0px_1px_2px_0px_rgba(255,255,255,0.1)_inset, 0px_-1px_2px_0px_rgba(255,255,255,0.1)_inset]'>Add Your Idea
                 <span className='absolute inset-x-0 bottom-px bg-gradient-to-r from-transparent via-cyan-500 to-transparent h-px w-full mx-auto'></span>
                 <span className='absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300 inset-x-0 bottom-px bg-gradient-to-r from-transparent via-cyan-500 to-transparent h-[8px] w-full mx-auto blur-sm'></span>
                 </motion.button>

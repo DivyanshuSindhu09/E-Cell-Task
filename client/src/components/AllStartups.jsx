@@ -31,9 +31,10 @@ const AllStartups = ({startups, input}) => {
     },[startups])
     
   return loading ? <Loading/> : (
-    <section className='text-white bg-red-50 max-w-6xl mx-auto'>
+    <>
+    <section className='text-white relative z-1000 mt-6 px-25 py-10 no-scrollbar no-scrollbar mx-auto'>
         
-            <div className='grid grid-cols-4'>
+            <div className='grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6'>
                 {
                 allStartups.map((startup) => (
                     <CardComponent key={startup._id} spotlightColor="rgba(0, 229, 255, 0.2)">
@@ -42,17 +43,28 @@ const AllStartups = ({startups, input}) => {
                             className='w-15 h-15 object-cover rounded-full'
                             src={startup.logo} alt="" />
                             <span>
-                                <p className='font-[acma] text-3xl'>{startup.name}</p>
-                                <p className='font-[absans] text-lg'> {startup.tags.join(',')} </p>
+                                <p className='font-[acma] text-2xl'>{startup.name}</p>
+                                <p className='font-[absans]'> {startup.tags.join(',')} </p>
                             </span>
                         </div>
-                        <p className='font-[absans] mt-4'> {startup.description.slice(0,175)}... <span className='cursor-pointer text-blue-500'>Read More</span> </p>
+                        <div className=''>
+                        <p
+                        id='description'
+                        className='font-[absans] mt-4'> {startup.description.slice(0,150)}... </p>
+                        </div>
+                        <div  className='flex justify-end'>
+                            <a
+                            className='bg-white px-4 py-1 rounded-lg text-black font-[absans] mt-4'
+                            target='_blank' href={startup.url}>Know More</a>
+                        </div>
                     </CardComponent>
                 ))
             }
             </div>
         
     </section>
+    
+    </>
   )
 }
 

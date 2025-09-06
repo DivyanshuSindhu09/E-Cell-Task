@@ -32,14 +32,19 @@ const CardComponent = ({ children, className = '', spotlightColor = 'rgba(255, 2
   };
 
   return (
-    <div
+    <div className=''>
+      <div
+      style={{backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              backdropFilter: 'blur(10px)',
+              borderRadius: '20px',
+              boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',}}
       ref={divRef}
       onMouseMove={handleMouseMove}
       onFocus={handleFocus}
       onBlur={handleBlur}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`relative rounded-3xl border border-neutral-800 bg-neutral-900 overflow-hidden p-8 ${className}`}
+      className={`relative rounded-3xl w-full h-full overflow-hidden py-8 px-6 ${className}`}
     >
       <div
         className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 ease-in-out"
@@ -49,6 +54,7 @@ const CardComponent = ({ children, className = '', spotlightColor = 'rgba(255, 2
         }}
       />
       {children}
+    </div>
     </div>
   );
 };

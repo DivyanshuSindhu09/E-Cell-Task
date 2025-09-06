@@ -4,8 +4,9 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import Loading from './Loading'
 import CardComponent from './CardComponent'
+import StartupModal from './StartupModal'
 
-const AllStartups = ({startups, input}) => {
+const AllStartups = ({startups, input, setModalOpen, modalOpen}) => {
 
     const [allStartups, setAllStartups] = useState([])
     const [loading, setLoading] = useState(true);
@@ -61,8 +62,10 @@ const AllStartups = ({startups, input}) => {
                 ))
             }
             </div>
-        
     </section>
+        {
+            modalOpen && <StartupModal setModalOpen={setModalOpen} getStartups={getStartups} modalOpen={modalOpen}/>
+        }
     
     </>
   )

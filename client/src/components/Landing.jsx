@@ -67,9 +67,9 @@ const Landing = () => {
             </nav>
         </header>
         
-        <AllStartups startups={startups} input={input} />
+        <AllStartups setModalOpen={setModalOpen} modalOpen={modalOpen} startups={startups} input={input} />
         
-        <StartupModal setModalOpen={setModalOpen} modalOpen={modalOpen}/>
+        
         </section>
         <section className='w-screen transform  absolute inset-0 '>
         <div className="absolute w-72 top-20 left-10 h-72 blur-3xl opacity-30 animate-pulse transition-all rounded-full bg-gradient-to-r from-purple-700 via-pink-500 to-red-500 shadow-lg"></div>

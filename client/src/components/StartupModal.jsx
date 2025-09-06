@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 
-const StartupModal = ({ modalOpen, setModalOpen, getStarups }) => {
+const StartupModal = ({ modalOpen, setModalOpen, refreshStartups }) => {
   const [startupForm, setStartupForm] = useState({
     name: "",
     description: "",
@@ -24,7 +24,7 @@ const StartupModal = ({ modalOpen, setModalOpen, getStarups }) => {
       startupData.append('tags', tags)
 
       await axios.post("http://localhost:4000/api/v1/startups/add", startupData)
-      getStarups()
+      refreshStartups()
       setModalOpen(false)
 
     } catch (error) {

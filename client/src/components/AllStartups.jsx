@@ -24,6 +24,11 @@ const AllStartups = ({startups, input, setModalOpen, modalOpen}) => {
         }
     }
 
+    const refreshStartups = async () => {
+        const response = await axios.get("http://localhost:4000/api/v1/startups/allstartups")
+        setAllStartups(response.data.data)
+    }
+
     useEffect(()=>{
         getStartups()
         if(startups && startups.length > 0){
@@ -64,7 +69,7 @@ const AllStartups = ({startups, input, setModalOpen, modalOpen}) => {
             </div>
     </section>
         {
-            modalOpen && <StartupModal setModalOpen={setModalOpen} getStartups={getStartups} modalOpen={modalOpen}/>
+            modalOpen && <StartupModal setModalOpen={setModalOpen} refreshStartups={refreshStartups} modalOpen={modalOpen}/>
         }
     
     </>

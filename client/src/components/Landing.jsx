@@ -72,10 +72,14 @@ const Landing = () => {
         
         </section>
         <section className='w-screen transform  absolute inset-0 '>
-        <div className="absolute w-72 top-20 left-10 h-72 blur-3xl opacity-30 animate-pulse transition-all rounded-full bg-gradient-to-r from-purple-700 via-pink-500 to-red-500 shadow-lg"></div>
-        <div className="absolute w-130 h-130 blur-3xl opacity-30 top-1/3 right-10 animate-pulse transition-all rounded-full bg-gradient-to-br from-cyan-500 via-blue-600 to-indigo-800 shadow-lg"></div>
-        <div className="absolute w-64 h-64 bottom-20 left-1/4 blur-3xl opacity-30 animate-pulse transition-all rounded-full bg-gradient-to-tr from-[#f12711] to-[#f5af19] shadow-lg"></div>
-        <div className="absolute w-80 h-80 bottom-1/3 right-1/3 blur-3xl opacity-30 animate-pulse transition-all rounded-full bg-gradient-to-r from-[#43cea2] to-[#185a9d] shadow-lg"></div>
+        <div className="absolute w-72 top-20 left-10 h-72 blur-3xl opacity-30 animate-pulse transition-all rounded-full bg-gradient-to-r from-[#ff9966] to-[#ff5e62] shadow-lg"></div>
+
+        <div className="absolute w-130 h-130 blur-3xl opacity-30 top-1/3 right-10 animate-pulse transition-all rounded-full bg-gradient-to-br from-[#6a11cb] to-[#2575fc] shadow-lg"></div>
+
+        <div className="absolute w-64 h-64 bottom-20 left-1/4 blur-3xl opacity-30 animate-pulse transition-all rounded-full bg-gradient-to-tr from-[#00b09b] to-[#96c93d] shadow-lg"></div>
+
+        <div className="absolute w-80 h-80 bottom-1/3 right-1/3 blur-3xl opacity-30 animate-pulse transition-all rounded-full bg-gradient-to-r from-[#ff758c] to-[#ff7eb3] shadow-lg"></div>
+
     </section>
     </>
   ) 

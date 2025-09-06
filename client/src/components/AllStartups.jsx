@@ -31,7 +31,7 @@ const AllStartups = ({startups, input}) => {
     },[startups])
     
   return loading ? <Loading/> : (
-    <section className='text-white'>
+    <section className='text-white bg-red-50 max-w-6xl mx-auto'>
         
             <div className='grid grid-cols-4'>
                 {
@@ -43,9 +43,10 @@ const AllStartups = ({startups, input}) => {
                             src={startup.logo} alt="" />
                             <span>
                                 <p className='font-[acma] text-3xl'>{startup.name}</p>
-                                <p className='font-[absans]'> {startup.tags.join(',')} </p>
+                                <p className='font-[absans] text-lg'> {startup.tags.join(',')} </p>
                             </span>
                         </div>
+                        <p className='font-[absans] mt-4'> {startup.description.slice(0,175)}... <span className='cursor-pointer text-blue-500'>Read More</span> </p>
                     </CardComponent>
                 ))
             }

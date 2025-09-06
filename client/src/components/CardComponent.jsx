@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import {motion} from 'motion/react'
 
 const CardComponent = ({ children, className = '', spotlightColor = 'rgba(255, 255, 255, 0.25)' }) => {
   const divRef = useRef(null);
@@ -32,7 +33,17 @@ const CardComponent = ({ children, className = '', spotlightColor = 'rgba(255, 2
   };
 
   return (
-    <div className=''>
+    <motion.div
+    initial={{opacity: 0,
+              scale: 0.98,
+              filter: 'blur(10px)'}}
+    
+    animate={{opacity: 1,
+              scale: 1,
+              filter: 'blur(0px)'}}
+    
+    transition={{duration: 0.4, ease: 'easeInOut'}}
+    >
       <div
       style={{backgroundColor: 'rgba(255, 255, 255, 0.1)',
               backdropFilter: 'blur(10px)',
@@ -55,7 +66,7 @@ const CardComponent = ({ children, className = '', spotlightColor = 'rgba(255, 2
       />
       {children}
     </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -3,6 +3,7 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import Loading from './Loading'
+import CardComponent from './CardComponent'
 
 const AllStartups = ({startups, input}) => {
 
@@ -30,15 +31,26 @@ const AllStartups = ({startups, input}) => {
     },[startups])
     
   return loading ? <Loading/> : (
-    <section>
-        {
-            allStartups.map((st)=>(
-                <p key={st._id}> {st.name} </p>
-            ))
-        }
-        {
-            allStartups.length === 0 && !loading && <p>No startups found</p>
-        }
+    <section className='text-white'>
+        
+            <div className='grid grid-cols-4'>
+                {
+                allStartups.map((startup) => (
+                    <CardComponent key={startup._id} spotlightColor="rgba(0, 229, 255, 0.2)">
+                        <div className='flex items-center gap-4'>
+                            <img
+                            className='w-15 h-15 object-cover rounded-full'
+                            src={startup.logo} alt="" />
+                            <span>
+                                <p className='font-[acma] text-3xl'>{startup.name}</p>
+                                <p className='font-[absans]'> {startup.tags.join(',')} </p>
+                            </span>
+                        </div>
+                    </CardComponent>
+                ))
+            }
+            </div>
+        
     </section>
   )
 }

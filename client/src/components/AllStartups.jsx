@@ -38,7 +38,7 @@ const AllStartups = ({startups, input, setModalOpen, modalOpen}) => {
     
   return loading ? <Loading/> : (
     <>
-    <section className='text-white relative z-1000 mt-6 px-25 py-10 no-scrollbar no-scrollbar mx-auto'>
+    <section className='text-white relative z-1 mt-6 px-25 py-10 no-scrollbar no-scrollbar mx-auto'>
         
             <div className='grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6'>
                 {

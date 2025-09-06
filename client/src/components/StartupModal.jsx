@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import toast from 'react-hot-toast'
 
 const StartupModal = ({ modalOpen, setModalOpen, refreshStartups }) => {
   const [startupForm, setStartupForm] = useState({
@@ -23,18 +24,28 @@ const StartupModal = ({ modalOpen, setModalOpen, refreshStartups }) => {
       logo && startupData.append('logo', logo)
       startupData.append('tags', tags)
 
-      await axios.post("http://localhost:4000/api/v1/startups/add", startupData)
+      const response = await axios.post("http://localhost:4000/api/v1/startups/add", startupData)
+      console.log(response)
+      if(response.data.success){
+       toast.success(response.data.message)
+       
+    }else{
+        toast.error(response.data.data.message)
+        console.log(response.data.data.message)
+        return null
+    }
       refreshStartups()
       setModalOpen(false)
 
     } catch (error) {
       console.log(error.message)
+      toast.error(error.response?.data?.message || "Something went wrong");
     }
   }
 
   return (
     modalOpen && (
-      <section className="fixed font-[absans] inset-0 z-[99999] flex items-center justify-center bg-black/60 backdrop-blur-sm">
+      <section className="fixed font-[absans] inset-0 z-3 flex items-center justify-center bg-black/60 backdrop-blur-sm">
         <div className="relative w-[90%] max-w-2xl rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-6 shadow-2xl border border-white/10">
           
           
@@ -49,7 +60,11 @@ const StartupModal = ({ modalOpen, setModalOpen, refreshStartups }) => {
           </h2>
 
           
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <form onSubmit={e => toast.promise(
+                        handleSubmit(e),{
+                            loading : "Saving...."
+                        }
+                    )} className="flex flex-col gap-4">
             
 
             <label htmlFor="logo" className="flex flex-col items-center cursor-pointer">
@@ -107,7 +122,7 @@ const StartupModal = ({ modalOpen, setModalOpen, refreshStartups }) => {
             />
 
             
-            <button className="mt-4 py-2 rounded-lg bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-semibold shadow-lg hover:shadow-cyan-500/30 hover:scale-[1.02] transition-all duration-300">
+            <button className="mt-4 py-2 cursor-pointer rounded-lg bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-semibold shadow-lg hover:shadow-cyan-500/30 hover:scale-[1.02] transition-all duration-300">
               Submit
             </button>
           </form>

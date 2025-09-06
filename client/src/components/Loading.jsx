@@ -4,7 +4,7 @@ const Loading = ({ height = '100vh' }) => {
   return (
     <section
       style={{ height }}
-      className="flex items-center absolute top-0 left-0 w-full justify-center bg-gray-900"
+      className="flex items-center absolute z-9999999999 top-0 left-0 w-full justify-center bg-gray-900"
     >
       <svg
         width="50"

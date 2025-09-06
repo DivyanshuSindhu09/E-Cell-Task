@@ -35,7 +35,7 @@ const Landing = () => {
     <>
         <section className='max-h-screen overflow-y-auto no-scrollbar'>
                 <header>
-            <nav className='w-full font-[absans] z-9999 sticky pt-6 flex items-center justify-between px-7 py-2'>
+            <nav className='w-full font-[absans] z-2 sticky pt-6 flex items-center justify-between px-7 py-2'>
                 <span className='text-4xl text-white font-[acma]'>StartupHub</span>
                 <div className='w-[35%] flex gap-2 border-2 border-white rounded-lg'>
                 <input 

@@ -92,6 +92,9 @@ export const discoverStartups = async (req, res) => {
                 },
                 {
                     url : new RegExp(input, 'i')
+                },
+                {
+                    tags : {$in : [new RegExp(input, 'i')]}
                 }
             ]
         })

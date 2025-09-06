@@ -1,6 +1,8 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import toast from 'react-hot-toast'
+import {AnimatePresence,motion} from 'motion/react'
+
 
 const StartupModal = ({ modalOpen, setModalOpen, refreshStartups }) => {
   const [startupForm, setStartupForm] = useState({
@@ -35,7 +37,7 @@ const StartupModal = ({ modalOpen, setModalOpen, refreshStartups }) => {
         return null
     }
       refreshStartups()
-      setModalOpen(false)
+      setTimeout(() => setModalOpen(false), 100) 
 
     } catch (error) {
       console.log(error.message)
@@ -44,8 +46,24 @@ const StartupModal = ({ modalOpen, setModalOpen, refreshStartups }) => {
   }
 
   return (
-    modalOpen && (
-      <section className="fixed font-[absans] inset-0 z-3 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+  <>
+    <AnimatePresence>
+    {
+      modalOpen && (
+      <motion.section
+      key="startup-modal"
+      initial={{opacity: 0,
+              scale: 0.98,
+              filter: 'blur(10px)'}}
+    
+    animate={{opacity: 1,
+              scale: 1,
+              filter: 'blur(0px)'}}
+      exit={{opacity: 0,
+            scale: 0.98,
+            filter: 'blur(10px)'}}
+      transition={{duration: 0.2, ease: 'easeInOut'}}
+      className="fixed font-[absans] inset-0 z-3 flex items-center justify-center bg-black/60 backdrop-blur-sm">
         <div className="relative w-[90%] max-w-2xl rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-6 shadow-2xl border border-white/10">
           
           
@@ -127,8 +145,11 @@ const StartupModal = ({ modalOpen, setModalOpen, refreshStartups }) => {
             </button>
           </form>
         </div>
-      </section>
+      </motion.section>
     )
+    }
+  </AnimatePresence>
+  </>
   )
 }
 

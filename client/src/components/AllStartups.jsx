@@ -43,7 +43,7 @@ const AllStartups = ({startups, input, setModalOpen, modalOpen}) => {
             <div className='grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6'>
                 {
                 allStartups.map((startup) => (
-                    <CardComponent key={startup._id} spotlightColor="rgba(0, 229, 255, 0.2)">
+                    <CardComponent key={startup._id} spotlightColor="rgba(255, 85, 170, 0.6)">
                         <div className='flex items-center gap-4'>
                             <img
                             className='w-15 h-15 object-cover rounded-full'
